@@ -1,0 +1,96 @@
+html, body, #main, #main div{
+  height: 100%;
+  margin: 0;
+}
+
+#pulser {
+  -webkit-animation: pulse 3s linear;
+  -moz-animation: pulse 3s linear;
+  animation: pulse 3s linear;
+  
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+@-moz-keyframes pulse {
+ 0% {
+    -moz-transform: scale(0);
+    opacity: 0.0;
+ }
+ 25% {
+    -moz-transform: scale(0.2);
+    opacity: 0.1;
+ }
+ 50% {
+    -moz-transform: scale(0.5);
+    opacity: 0.3;
+ }
+ 75% {
+    -moz-transform: scale(1);
+    opacity: 0.6;
+ }
+ 100% {
+    -moz-transform: scale(1.6);
+    opacity: 0.0;
+ }
+}
+
+@-webkit-keyframes "pulse" {
+ 0% {
+    -webkit-transform: scale(0);
+    opacity: 0.0;
+ }
+ 25% {
+    -webkit-transform: scale(0.2);
+    opacity: 0.1;
+ }
+ 50% {
+    -webkit-transform: scale(0.5);
+    opacity: 0.3;
+ }
+ 75% {
+    -webkit-transform: scale(1);
+    opacity: 0.6;
+ }
+ 100% {
+    -webkit-transform: scale(1.6);
+    opacity: 0.0;
+ }
+}
+
+div{
+  transition: background-color 1s ease;
+}
+
+p{
+  text-align: center;
+  font-family: 'Baloo Bhai', cursive;
+  color: white;
+  font-size: 2em;
+}
+
+h1{
+  text-align: center;
+  font-family: 'Baloo Bhai', cursive;
+  color: white;
+  font-size: 40px;
+  background-color: #333;
+  width: 170px;
+  height: 55px;
+  
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+  
+  transition: all 0.5s ease;
+}
+
+h1:hover{
+  box-shadow: 10px 7px 7px white;
+}

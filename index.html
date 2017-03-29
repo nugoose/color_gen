@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
+    <!-- css -->
+    <link rel='stylesheet' type='text/css' href='color_gen.css'>
+    <!-- react -->
+    <script src="https://unpkg.com/react@15/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15/dist/react-dom.js"></script>
+    <!-- jsx -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.min.js'></script>
+</head>
+<body>
+
+    <!-- Click the box with the hexadecimal code to generate new colors. If there's a color that you liked but don't remember the hexadecimal code, check your console. -->
+    <div id='main'></div>
+    
+    <script type='text/babel'>
+        //hexadecimal colors
+        //0-9, A B C D E F
+        var firstColor = giveMeAHexa();
+
+        function giveMeAHexa(){
+          var colorCode = '#', colorArr = [0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F'];
+          for(var i = 0; i < 6; i++){
+            //min included, max included
+            colorCode += colorArr[Math.floor(Math.random() * (16))];
+          }
+          console.log(colorCode);
+          return colorCode;
+        }
+
+        //React
+        var ColorGenerator = React.createClass({
+          getInitialState: function(){
+            return (
+              {bcolor: firstColor}
+            );
+          },
+
+          getNewColor: function(){
+            var newColor = giveMeAHexa();
+            this.setState({bcolor: newColor});
+          },
+
+          render: function(){
+            return (
+              <div style={{background: this.state.bcolor}}>
+                    <h1 id='pulser'></h1>
+                    <h1 onClick={this.getNewColor}>{this.state.bcolor}</h1>
+              </div>
+            );
+          }
+        });
+
+        ReactDOM.render(
+          <ColorGenerator />,
+          document.getElementById('main')
+        );
+    </script>
+    
+</body>
+</html>
